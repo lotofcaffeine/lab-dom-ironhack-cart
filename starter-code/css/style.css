@@ -76,7 +76,7 @@ input {
     color: #fff;
     background-color: #5cb85c;
     border-color: #4cae4c;
-    display: pointer;
+    display: none;
 }
 .success{
   margin-top: 100px;
@@ -91,6 +91,12 @@ input {
 }
 .btn-create{
   cursor: pointer;
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+  border-radius: 6px;
+  height: 30px;
+  width: 200px;
 }
 
 .quantity {
