@@ -17,7 +17,8 @@ function getTotal() {
         let firstValue = Number(valueItem[i].innerText);
         let secondValue = Number(qtyProduct[i].value);
         let product = firstValue * secondValue;
-        subtotal[i].innerHTML = product;
+
+        subtotal[i].innerHTML = product.toFixed(2);
         total += product;
 
     }
@@ -26,7 +27,7 @@ function getTotal() {
 
 function updateTotalPrice(value) {
     let finalSoma = document.getElementById("totalValue");
-    finalSoma.innerHTML = value;
+    finalSoma.innerHTML = value.toFixed(2);
 }
 
 
@@ -48,7 +49,7 @@ let createNewRow = (event) => {
     if (!firstDescription || !secondInput) {
         return false;
     } else {
-        rows.appendChild(createNewItem(firstDescription, secondDescription));
+        rows.appendChild(createNewItem(firstDescription, parseFloat(secondDescription).toFixed(2)));
         cleanInput(firstInput);
         cleanInput(secondInput);
     }
@@ -103,6 +104,7 @@ function createNewItem(description, receivedValue) {
     amount.appendChild(label);
     let input = document.createElement('input');
     input.setAttribute("class", "quantity");
+    input.addEventListener("change", getTotal);
     input.setAttribute("type", "number");
     input.setAttribute("name", "quantity");
     amount.appendChild(input);
@@ -132,4 +134,6 @@ window.onload = function() {
     createButton.onclick = createNewRow;
     let calculatePriceButton = document.getElementById("calc-prices-button");
     calculatePriceButton.onclick = getTotal;
+
+
 };
